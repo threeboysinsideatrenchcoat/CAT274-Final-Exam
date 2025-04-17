@@ -7,11 +7,14 @@ public class CharacterMovement : HealthScript
 
 {
     public float speed = 0.2f;
+    public float jumpForce = 10f;
     public GameObject player;
+    public Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -28,6 +31,11 @@ public class CharacterMovement : HealthScript
         {
             player.transform.position += Vector3.left * speed;
             Debug.Log("A Pressed");
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
         if (Input.GetKey(KeyCode.D))
@@ -55,7 +63,7 @@ public class CharacterMovement : HealthScript
             Destroy(collision.gameObject);
         }
 
-        if (collision.gameObject.tag == "Fish")// && Health < 3)
+        if (collision.gameObject.tag == "Fish" && health < 3)
         {
             Destroy(collision.gameObject); 
             health = health + 1; 
@@ -67,6 +75,11 @@ public class CharacterMovement : HealthScript
         {
             health = health - 1; 
             
+        }
+        if (other.gameObject.tag == "DeathBlock")
+        {
+            health = health - 1; 
+            SceneManager.LoadScene("Main");
         }
     }
 }
