@@ -5,10 +5,10 @@ using UnityEngine;
 public class ProjectileBase : MonoBehaviour
 {
     public float speed = 0.5f; 
-    public GameObject thisObject; 
-
-    public float lifeTime = 3f;
+    //public GameObject thisObject; 
     public float timer = 0f; 
+    public float lifeTime = 3f;
+   
     
     void Update()
     {

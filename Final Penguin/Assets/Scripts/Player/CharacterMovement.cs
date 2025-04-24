@@ -12,6 +12,7 @@ public class CharacterMovement : MonoBehaviour
     public Rigidbody2D rb;
     public GameManager myManager;
 
+
     public GameObject snowball;
 
     public bool isShootingRight = true;
@@ -21,6 +22,8 @@ public class CharacterMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         myManager = FindObjectOfType<GameManager>();
+
+
     }
 
     // Update is called once per frame
@@ -61,7 +64,7 @@ public class CharacterMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collison)
     {      
         
-        if (collison.gameObject.tag == "Snowball" && myManager.health == 0)
+        if (myManager.health <= 0)
         {
             Destroy(player);
             SceneManager.LoadScene("Title");
@@ -84,9 +87,9 @@ public class CharacterMovement : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     { 
-        if(other.gameObject.tag == "Snowball")
+        if(other.gameObject.tag == "EnemySnowball")
         {
-            myManager.health -=1; 
+            myManager.health -= 1; 
             
         }
         if (other.gameObject.tag == "DeathBlock")

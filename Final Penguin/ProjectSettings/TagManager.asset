@@ -12,6 +12,7 @@ TagManager:
   - DeathBlock
   - Home
   - SpecialBoss
+  - EnemySnowball
   layers:
   - Default
   - TransparentFX

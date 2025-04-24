@@ -9,20 +9,22 @@ public class BulletSnowEnemy : ProjectileBase
 
    public Enemy enemy;
 
+   public bool isMovingRight = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        enemy = FindObjectOfType<Enemy>();
+       // enemy = FindObjectOfType<Enemy>();
 
         rb = GetComponent<Rigidbody2D>();
 
-        if (enemy.isPlayerRight == true)
+        if (isMovingRight == true)
         {        
             rb.AddForce(transform.right * speed, ForceMode2D.Impulse);
             Debug.Log("Is shooting right.");
         }
         
-        if (enemy.isPlayerRight == false)
+        if (isMovingRight == false)
         {
             rb.AddForce(-transform.right * speed, ForceMode2D.Impulse);
             Debug.Log("Is shooting left.");
