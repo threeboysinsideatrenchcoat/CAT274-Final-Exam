@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-public class Enemy : MonoBehaviour
-{
-    public int health = 1; 
+using UnityEngine.SceneManagement; 
 
-    public float timebetweenShots = 2f;
+public class SoecialEnemy : MonoBehaviour
+{
+    public int health = 3; 
+
+    public float timebetweenShots = 1f;
 
     public float timer = 0f; 
 
@@ -16,19 +17,18 @@ public class Enemy : MonoBehaviour
     public CharacterMovement player;
     
     public bool isPlayerRight;
-
+    // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<CharacterMovement>();
     }
-
 
     // Update is called once per frame
     void Update()
     {
         if ((SceneManager.GetActiveScene().buildIndex) == 0)
         {
-            health = 1; 
+            health = 3; 
         }
 
         timer += Time.deltaTime;
@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
 
         if(gameObject.tag == "Snowball")
         {
-            health -= 1; 
+            health -= 1;
         }
     }
 }

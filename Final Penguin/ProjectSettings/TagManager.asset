@@ -13,6 +13,7 @@ TagManager:
   - Home
   - SpecialBoss
   - EnemySnowball
+  - JumpBlock
   layers:
   - Default
   - TransparentFX

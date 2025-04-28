@@ -64,11 +64,6 @@ public class CharacterMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collison)
     {      
         
-        if (myManager.health <= 0)
-        {
-            Destroy(player);
-            SceneManager.LoadScene("Title");
-        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -90,6 +85,7 @@ public class CharacterMovement : MonoBehaviour
         if(other.gameObject.tag == "EnemySnowball")
         {
             myManager.health -= 1; 
+            Destroy(other.gameObject);
             
         }
         if (other.gameObject.tag == "DeathBlock")
@@ -97,6 +93,14 @@ public class CharacterMovement : MonoBehaviour
             myManager.health -= 1;
             player.transform.position = new Vector3(-13.96f, -2.2f, 0f);
             
+        }
+        if (other.gameObject.tag == "Special Boss")
+        {
+            myManager.health -= 1; 
+        }
+        if (other.gameObject.tag == "Home")
+        {
+            SceneManager.LoadScene("End");
         }
     }
 }

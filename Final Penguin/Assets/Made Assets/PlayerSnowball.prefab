@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2230634936222394284}
   - component: {fileID: 2745397288200280853}
   - component: {fileID: 3683927770117671050}
+  - component: {fileID: -6053553625484576129}
   m_Layer: 0
   m_Name: PlayerSnowball
   m_TagString: Snowball
@@ -125,5 +126,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31d60a1890f6f04d961465a53730176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 2745397288200280853}
   speed: 4
+  timer: 0
+  lifeTime: 3
+  rb: {fileID: 2745397288200280853}
+  player: {fileID: 0}
+--- !u!58 &-6053553625484576129
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390715360919849404}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.078125
