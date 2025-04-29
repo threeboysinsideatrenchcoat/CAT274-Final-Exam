@@ -44,7 +44,7 @@ public class SoecialEnemy : MonoBehaviour
             isPlayerRight = false;
         }
 
-        if(timer >= timebetweenShots && health >= 0)
+        if(timer >= timebetweenShots && health > 0)
         {
             if(snowballPrefab != null)
             {
@@ -59,9 +59,19 @@ public class SoecialEnemy : MonoBehaviour
             return;
         }
 
-        if(gameObject.tag == "Snowball")
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Snowball")
         {
             health -= 1;
+            Destroy(other.gameObject);
+        }
+        if(gameObject.GetComponent<SpriteRenderer>())
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
         }
     }
+    
 }
